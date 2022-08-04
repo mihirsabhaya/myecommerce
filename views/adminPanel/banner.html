@@ -142,7 +142,7 @@ table{
 							<% for(var i = 0; i < data.length; i++ ) { %>
 							<tr>
 								<td><%= con %></td>
-								<td><img src="<%=BaseUrl%>/chemical/image/<%= data[i].image %>" width="100" alt="product image"></td>
+								<td><img src="<%=BaseUrl%>/user/image/<%= data[i].image %>" width="100" alt="product image"></td>
 								<td class="text-center">
 									<button onclick="archiveFunction('<%=BaseUrl%>/deletebanner/<%= data[i]._id %>')" id="<%=BaseUrl%>/deletebanner/<%= data[i]._id %>" class="button" style="background-color:#dc3139;width: 60px !important;height: 45px;"><i class="icon-feather-trash-2"></i>
 									</button>
@@ -213,7 +213,7 @@ table{
 								<% for(var i = 0; i < data1.length; i++ ) { %>
 								<tr>
 									<td><%= con %></td>
-									<td><img src="<%=BaseUrl%>/chemical/image/<%= data1[i].image %>" width="100" alt="product image"></td>
+									<td><img src="<%=BaseUrl%>/user/image/<%= data1[i].image %>" width="100" alt="product image"></td>
 									<td class="text-center">
 										<button onclick="archiveFunction('<%=BaseUrl%>/deleteposter/<%= data1[i]._id %>')" id="<%=BaseUrl%>/deleteposter/<%= data1[i]._id %>" class="button" style="background-color:#dc3139;width: 60px !important;height: 45px;"><i class="icon-feather-trash-2"></i>
 										</button>
