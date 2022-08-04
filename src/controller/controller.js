@@ -19,7 +19,7 @@ exports.home = async (req, res, next) => {
     for (let i = 0; i < product.length; i++) {
       for (let k = 0; k < product[i].image.length; k++) {
         product[i].image[k] =
-          BaseUrl + "/chemical/image/" + product[i].image[k];
+          BaseUrl + "/user/image/" + product[i].image[k];
       }
     }
     var bottom_posters = await db
@@ -35,11 +35,11 @@ exports.home = async (req, res, next) => {
     };
     console.log(data)
 
-    return route.responseData("chemical/index.html", data, res);
-    //   return responseData("chemical/index.html", data, res);
+    return route.responseData("user/index.html", data, res);
+    //   return responseData("user/index.html", data, res);
   } catch (e) {
-    return route.responseData("chemical/index.html", {}, res);
-    //   return responseData("chemical/index.html", {}, res);
+    return route.responseData("user/index.html", {}, res);
+    //   return responseData("user/index.html", {}, res);
   }
 };
 
@@ -63,7 +63,7 @@ exports.shop = (req, res, next) => {
         for (let i = 0; i < result.length; i++) {
           for (let k = 0; k < result[i].image.length; k++) {
             result[i].image[k] =
-              BaseUrl + "/chemical/image/" + result[i].image[k];
+              BaseUrl + "/user/image/" + result[i].image[k];
           }
         }
 
@@ -74,8 +74,8 @@ exports.shop = (req, res, next) => {
         data["search"] = {};
         data["current"] = page;
         data["pages"] = Math.ceil(userCount / perPage);
-        //   responseData("chemical/item.html", data, res);
-        return route.responseData("chemical/item.html", data, res);
+        //   responseData("user/item.html", data, res);
+        return route.responseData("user/item.html", data, res);
       });
   });
 };
@@ -98,7 +98,7 @@ exports.productdetail = async (req, res) => {
     };
 
     // console.log(data);
-    route.responseData("chemical/productdetail.html", data, res);
+    route.responseData("user/productdetail.html", data, res);
   } catch (e) {
     console.log(e);
   }
@@ -166,7 +166,7 @@ exports.productpage = (req, res) => {
         for (let i = 0; i < result.length; i++) {
           for (let k = 0; k < result[i].image.length; k++) {
             result[i].image[k] =
-              BaseUrl + "/chemical/image/" + result[i].image[k];
+              BaseUrl + "/user/image/" + result[i].image[k];
           }
         }
         data = {
@@ -206,7 +206,7 @@ exports.editproduct = (req, res) => {
       { _id: objectId(req.params._id) },
       (err, result3) => {
         for (let k = 0; k < result3.image.length; k++) {
-          result3.image[k] = BaseUrl + "/chemical/image/" + result3.image[k];
+          result3.image[k] = BaseUrl + "/user/image/" + result3.image[k];
         }
 
         data = {
@@ -303,7 +303,7 @@ exports.insertproducts = (req, res) => {
   if (pfile) {
     var pdf_name = Date.now() + "_" + pfile.name;
     if (pfile.mimetype == "application/pdf") {
-      pfile.mv("views/chemical/video/" + pdf_name, function (err) {
+      pfile.mv("views/user/video/" + pdf_name, function (err) {
         if (err) return res.status(500).send(err);
         addData();
       });
@@ -328,7 +328,7 @@ exports.insertproducts = (req, res) => {
         file[i].mimetype == "image/png" ||
         file[i].mimetype == "image/jpg"
       ) {
-        file[i].mv("views/chemical/image/" + img_name, function (err) {
+        file[i].mv("views/user/image/" + img_name, function (err) {
           if (err) return res.status(500).send(err);
         });
         multiImg.push(img_name);
@@ -375,7 +375,7 @@ exports.editproductimage = (req, res) => {
       file[i].mimetype == "image/png" ||
       file[i].mimetype == "image/jpg"
     ) {
-      file[i].mv("views/chemical/image/" + img_name, function (err) {
+      file[i].mv("views/user/image/" + img_name, function (err) {
         if (err) return res.status(500).send(err);
       });
 
@@ -523,7 +523,7 @@ exports.addposter = (req, res) => {
     file.mimetype == "image/jpg" ||
     file.mimetype == "image/PNG"
   ) {
-    file.mv("views/chemical/image/" + img_name, function (err) {
+    file.mv("views/user/image/" + img_name, function (err) {
       var item = {
         image: img_name,
         date: new Date(),
@@ -555,7 +555,7 @@ exports.addbanner = (req, res) => {
     file.mimetype == "image/jpg" ||
     file.mimetype == "image/PNG"
   ) {
-    file.mv("views/chemical/image/" + img_name, function (err) {
+    file.mv("views/user/image/" + img_name, function (err) {
       if (err) return res.status(500).send(err);
 
       var item = {
@@ -756,7 +756,7 @@ exports.index = (req, res) => {
 
                           // console.log(result)
                           return route.responseData(
-                            "chemical/index.html",
+                            "user/index.html",
                             data,
                             res
                           );
