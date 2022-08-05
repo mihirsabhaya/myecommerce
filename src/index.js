@@ -3,20 +3,21 @@ ejs = require("ejs");
 path = require("path");
 bodyParser = require("body-parser");
 fileUpload = require("express-fileupload");
-url = "mongodb://localhost:27017/ecom";
-dbName = "ecom";
 MongoClient = require("mongodb").MongoClient;
 objectId = require("mongodb").ObjectID;
 session = require("express-session");
 assets = require("assert");
 http = require("http");
 app = express();
-helmet = require("helmet");
-port = "3000";
 fs = require("fs");
+helmet = require("helmet");
 route = require("./route/routes");
+url = "mongodb://localhost:27017/ecom";
+  dbName = "ecom";
+  port = "3000";
 
-var uniqid = require("randomatic");
+
+// var uniqid = require("randomatic");
 
 //  var BaseUrl = "https://mantradiamond.com";
 BaseUrl = "http://localhost:" + port;
