@@ -1,19 +1,20 @@
-const fs = require('fs')
 
-function readJSON (filePath, callback) {
-  fs.readFile(filePath, (err, data) => {
-    if (err) {
-      return callback(err)
-    }
+var x = 99
 
-    console.log('fliepath:- ' + filePath);
-    try {
-    //   callback(null, JSON.parse(data))
-    callback(null, JSON.parse(data))
-    } catch (ex) {
-      callback(ex)
-    }
-  })
+
+// if (x !== '' &&  x !== null && x !== undefined) {
+//   console.log("x has an value");
+// }
+
+// short form for check value is undefined, null and blank(empty)
+if (!!x) {
+  console.log("x han an value");
 }
 
-readJSON('./package.json', (err, pkg) => { console.log(err, pkg) })
+function name() {
+  var functionData = "function variable"
+  // return functionData;
+}
+
+var fData = name()
+console.log(fData);

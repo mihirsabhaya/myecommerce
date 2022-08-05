@@ -26,7 +26,7 @@ module.exports = {
     app.get("/admin", controller.getadmin);
     app.get("/termsandconditions",  controller.gettermsandconditions);
     app.get("/privacypolicy", controller.privacypolicy);
-    app.get("/about-mantradiamond",  controller.aboutmantradiamonds);
+    // app.get("/about-mantradiamond",  controller.aboutmantradiamonds);
     app.get("/contactus", controller.contactus);
     // app.get("/index", controller.index);
     app.get("/logout", controller.logout);

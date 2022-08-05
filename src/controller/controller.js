@@ -1,10 +1,10 @@
-const index = async (req , res) =>{
-  try {
-    console.log("hiii");
-  } catch (e) {
-    log(e)
-  }
-}
+// const index = async (req , res) =>{
+//   try {
+//     console.log("hiii");
+//   } catch (e) {
+//     log(e)
+//   }
+// }
 
 
 exports.home = async (req, res, next) => {
@@ -130,7 +130,7 @@ exports.inquirypage = (req, res) => {
         console.log(data);
 
         db.collection("product").find;
-console.log(data);
+        console.log(data);
         route.responseData("adminPanel/inquiry.html", data, res);
       });
   });
@@ -277,7 +277,7 @@ exports.tsellingid = (req, res) => {
   );
 };
 
-exports.deletebanner = app.post("/deletebanner/:_id", (req, res) => {
+exports.deletebanner = (req, res) => {
   db.collection("banner").deleteOne(
     { _id: objectId(req.params._id) },
     (err, rows) => {
@@ -285,7 +285,7 @@ exports.deletebanner = app.post("/deletebanner/:_id", (req, res) => {
       res.redirect("/banner");
     }
   );
-});
+};
 
 exports.deleteposter = (req, res) => {
   db.collection("poster").deleteOne(
@@ -346,7 +346,7 @@ exports.insertproducts = (req, res) => {
       insertdata = {
         name: data.name,
         price: parseFloat(data.price),
-        description: data.description,toString,
+        description: data.description, toString,
         image: multiImg,
         pdf: pdf_name,
         firstpageshow: 0,
@@ -358,6 +358,7 @@ exports.insertproducts = (req, res) => {
     });
   }
 };
+
 
 exports.editproductimage = (req, res) => {
   var data = req.body;
@@ -484,7 +485,7 @@ exports.login = (req, res) => {
         } else if (result) {
           sess.email = req.body.email;
           // console.log(sess.email);
-          
+
 
           res.redirect("/product/1");
         } else {
@@ -539,7 +540,7 @@ exports.addposter = (req, res) => {
           if (data.length > 0) {
             db.collection("poster").updateMany({}, { $set: item });
           } else {
-            db.collection("poster").insert(item, function (err, result2) {});
+            db.collection("poster").insert(item, function (err, result2) { });
           }
           res.redirect("/banner");
         });
@@ -779,9 +780,9 @@ exports.logout = (req, res) => {
 };
 
 
-exports.myurl = (req,res) =>{
-console.log("hello");
-var mydata = db.collection("banner").find().toArray()
-res.send(mydata)
-// console.log(mydata);
+exports.myurl = (req, res) => {
+  console.log("hello");
+  var mydata = db.collection("banner").find().toArray()
+  res.send(mydata)
+  // console.log(mydata);
 }
