@@ -189,10 +189,12 @@ exports.addproduct = (req, res) => {
       db.collection("pcategory")
         .find({})
         .toArray((err, result2) => {
+          // console.log("result2 :-" + result2);
           var data = {
             data: result,
             data2: result2,
           };
+          console.log(data)
           return route.responseData("adminPanel/addproduct.html", data, res);
         });
     });
@@ -344,7 +346,7 @@ exports.insertproducts = (req, res) => {
       insertdata = {
         name: data.name,
         price: parseFloat(data.price),
-        description: data.description,
+        description: data.description,toString,
         image: multiImg,
         pdf: pdf_name,
         firstpageshow: 0,
@@ -781,5 +783,5 @@ exports.myurl = (req,res) =>{
 console.log("hello");
 var mydata = db.collection("banner").find().toArray()
 res.send(mydata)
-console.log(mydata);
+// console.log(mydata);
 }
