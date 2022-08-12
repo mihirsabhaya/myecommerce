@@ -14,7 +14,7 @@ exports.home = async (req, res, next) => {
       .find({ firstpageshow: "checked" })
       .toArray();
     const banner = await db.collection("banner").find().toArray();
-    const banner_image = await db.collection("banner");
+    // const banner_image = await db.collection("banner");
 
     for (let i = 0; i < product.length; i++) {
       for (let k = 0; k < product[i].image.length; k++) {

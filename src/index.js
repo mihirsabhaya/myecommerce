@@ -13,8 +13,8 @@ fs = require("fs");
 helmet = require("helmet");
 route = require("./route/routes");
 url = "mongodb://localhost:27017/ecom";
-  dbName = "ecom";
-  port = "3000";
+dbName = "ecom";
+port = "3000";
 
 
 // var uniqid = require("randomatic");

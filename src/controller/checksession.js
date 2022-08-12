@@ -9,6 +9,5 @@ exports.session = (req, res, next) => {
         next()
     }else{
         return res.redirect("/admin");
-
     }
 }
